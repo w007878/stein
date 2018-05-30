@@ -2,6 +2,17 @@
 
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{mathrsfs}
+
+\geometry{top=2.5cm, left=2cm, right=2cm, bottom=2.5cm}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+
+\newtheorem{defn}[thm]{Definition} % definition numbers are dependent on theorem numbers
+\newtheorem{exmp}[thm]{Example} % same for example numbers
 
 \begin{document}
 
@@ -9,5 +20,34 @@
 \author{snowyjone. Sun Yat-sen University}
 \maketitle
 
+\section{$L^p$ Space}
 
+$L^p$ space can be considered as a set of $p$-power integrable functions. The special case, where $p=1$, is the set of all Lebesgue integrable functions defined on a number area. 
+
+Generally, we have the definition of $\sigma$-algebra as follows.
+\begin{defn}
+	a \textbf{$\sigma$-algebra} (also \textbf{$\sigma$-field}) on a set X is a collection $\Sigma$ of subsets of X that includes the empty subset, is closed under complement, and is closed under countable unions and countable intersections.
+\end{defn}
+a $\sigma$-algebra $\mathscr{F}$ can be used to represent a group of measurable subsets of a number area $X$. Therefore a $L^p$ can be wrote as $L^p(X,\mathscr{F},\mu)$ formally, where $\mu$ is the measure defined on $X$
+\begin{defn}
+	We define \textbf{$L^p$ norm} as follows.
+	\[||f||_{L^p(X,\mathscr{F},\mu)}=\left(\int_X|f(x)|^p~d\mu(x)\right)^{1/p}\]
+\end{defn}
+The next subsection is going to prove the triangle inequality of $p$-norm
+
+\subsection{H\"older and Minkowski inequalities}
+We call exponents $p$ and $q$ are \textbf{dual} or \textbf{conjure} is they satisfy $1\le p,q\le+\infty$ and the relation $\dfrac{1}{p}+\dfrac{1}{q}=1$
+
+\begin{thm}[H\"older Inequality]
+	If $p$ and $q$ are dual exponents, $f\in L^p$ and $g\in L^q$, then $fg\in L^1$ and \[||fg||_{L^1}\le ||f||_{L^p}||g||_{L^q}\]
+\end{thm}
+
+To prove the above inequality, we have a generalised form of arithmetic-geometric inequality as follows.
+
+\begin{thm}
+	If $A,B>0,~0\le \theta\le 1$, then
+	\[A^{\theta}B^{1-\theta}\le \theta A+(1-\theta)B\]
+\end{thm}
+
+A simple way to prove this is to assume $B\neq 0$, replace $A$ by $AB$, the $A\le \theta A+(1-\theta)$ is right no matter what value $\theta$ is. 
 \end{document}
